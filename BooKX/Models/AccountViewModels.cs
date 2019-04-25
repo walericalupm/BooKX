@@ -8,6 +8,22 @@ namespace BooKX.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Contry")]
+        public string Contry { get; set; }
+
+        [Required]
+        [Display(Name ="City")]
+        public string City { get; set; }
+
+        [Required]
+        [Display(Name = "Main Address")]
+        public string Address { get; set; }
+
+        [Required]
+        [Display(Name = "Postal Code")]
+        public string PostalCode { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -64,6 +80,22 @@ namespace BooKX.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "Contry")]
+        public string Contry { get; set; }
+
+        [Required]
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+        [Required]
+        [Display(Name = "Main Address")]
+        public string Address { get; set; }
+
+        [Required]
+        [Display(Name = "Postal Code")]
+        public string PostalCode { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

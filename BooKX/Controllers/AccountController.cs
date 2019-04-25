@@ -151,7 +151,14 @@ namespace BooKX.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Country = model.Contry,
+                    City = model.City,
+                    Address = model.Address,
+                    PostalCode = model.PostalCode
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -367,7 +374,14 @@ namespace BooKX.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Country = model.Contry,
+                    City = model.City,
+                    Address = model.Address,
+                    PostalCode = model.PostalCode 
+                };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

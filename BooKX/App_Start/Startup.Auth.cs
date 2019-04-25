@@ -58,11 +58,11 @@ namespace BooKX
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "1052635065620-mdescqqrea74onn4cm0upc4jncugb5d4.apps.googleusercontent.com",
+                ClientSecret = "EBgvfzwHeDXyIf0UEbqOfA2H"
+            });
         }
     }
 }
