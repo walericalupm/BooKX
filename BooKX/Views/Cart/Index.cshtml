@@ -1,28 +1,12 @@
 ﻿@model IEnumerable<BooKX.Models.Book>
 
 @{
-    ViewBag.Title = "Catalogo Disponible";
+    ViewBag.Title = "Carrito de Compras";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>Index</h2>
 
-<h2>Estos son los libros que puedes comprar actualmente</h2>
-@if (ViewBag.added)
-{
-    <div class="alert alert-success fade in">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>@ViewBag.bookName</strong> agregado al carrito.
-    </div>
-}
-else if (ViewBag.error)
-{
-    <div class="alert alert-danger">
-        <strong>Libro no se ha podido</strong> agregar al carrito.
-    </div>
-}
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -37,7 +21,7 @@ else if (ViewBag.error)
         <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
-        <th>Añadir</th>
+        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -55,16 +39,11 @@ else if (ViewBag.error)
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            <a href="@Url.Action("Add", "Books", new { id=item.Id })">
-                <i class="icon-large icon-cart-in"></i>
-            </a>
-            @*
-            @Html.ActionLink("Add To Cart","Add",new { id=item.Id})
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-            *@
         </td>
     </tr>
 }
+
 </table>

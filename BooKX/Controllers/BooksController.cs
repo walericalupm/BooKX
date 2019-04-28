@@ -13,10 +13,16 @@ namespace BooKX.Controllers
     public class BooksController : Controller
     {
         private BooKXDBModel db = new BooKXDBModel();
-
+  
         // GET: Books
         public ActionResult Index()
         {
+            TempData["bookAdded"] = (TempData["bookAdded"] == null) ? false : true;
+            TempData["errorAdded"] = (TempData["errorAdded"] == null) ? false : true;
+
+            ViewBag.added = TempData["bookAdded"];
+            ViewBag.bookName = TempData["bookName"];
+            ViewBag.error = TempData["errorAdded"];
             return View(db.Books.ToList());
         }
 
@@ -57,7 +63,28 @@ namespace BooKX.Controllers
 
             return View(book);
         }
-
+        public ActionResult Add(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Book book = db.Books.Find(id);
+            if (book == null)
+            {
+                TempData["errorAdded"] = true;
+            }
+            else
+            {
+                Cart cart = (Session["cart"] == null) ? new Cart(): (Cart)Session["cart"];
+                cart.lstBooksId = (cart.lstBooksId == null) ? new List<int>(): cart.lstBooksId;
+                cart.lstBooksId.Add(book.Id);
+                TempData["bookAdded"] = true;
+                TempData["bookName"] = book.Name;
+                Session["cart"] = cart;
+            }
+            return RedirectToAction("Index");
+        }
         // GET: Books/Edit/5
         public ActionResult Edit(int? id)
         {

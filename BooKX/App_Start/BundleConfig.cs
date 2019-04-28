@@ -25,7 +25,9 @@ namespace BooKX
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/bookx.css",
+                      "~/Content/bootstrap.icon-large.min.css"));
         }
     }
 }

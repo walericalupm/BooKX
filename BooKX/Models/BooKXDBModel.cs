@@ -38,7 +38,7 @@ namespace BooKX.Models
 
             modelBuilder.Entity<Book>()
                 .Property(e => e.Price)
-                .HasPrecision(3, 2);
+                .HasPrecision(4, 2);
 
             modelBuilder.Entity<Book>()
                 .HasMany(e => e.Shops)

@@ -406,6 +406,8 @@ namespace BooKX.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            //Clean Session Cart
+            Session["cart"] = null;
             return RedirectToAction("Index", "Home");
         }
 
