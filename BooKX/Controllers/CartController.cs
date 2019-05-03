@@ -14,14 +14,23 @@ namespace BooKX.Controllers
         public ActionResult Index()
         {
             Cart cart = (Session["cart"] == null) ? new Cart() : (Cart)Session["cart"];
-            List<Book> lstBooks = new List<Book>();
+            List<BookCart> lstBooks = new List<BookCart>();
+            List<BookCart> lstBookView = new List<BookCart>();
             if (cart.lstBooksId!=null && cart.lstBooksId.Count > 0)
             {
                 foreach (int book_id in cart.lstBooksId){
-                    lstBooks.Add(db.Books.Find(book_id));
+                    Book book = db.Books.Find(book_id);
+                    lstBooks.Add(new BookCart { Id = book_id, Author = book.Author, Name = book.Name, Price = book.Price, Quantity = 1 });
                 }
             }
+
+
             return View(lstBooks);
+        }
+
+        public ActionResult Remove(int? id)
+        {
+            return View();
         }
     }
 }
