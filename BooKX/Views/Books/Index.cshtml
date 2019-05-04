@@ -13,6 +13,7 @@
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>@ViewBag.bookName</strong> agregado al carrito.
     </div>
+
 }
 else if (ViewBag.error)
 {
@@ -21,7 +22,7 @@ else if (ViewBag.error)
     </div>
 }
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Agregar Libros", "Create")
 </p>
 <table class="table">
     <tr>

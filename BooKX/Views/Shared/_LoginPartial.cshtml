@@ -9,16 +9,17 @@
         <ul class="nav navbar-nav navbar-right">
             <li>
                 <a href="@Url.Action("Index", "Cart")" class="btn btn-link">
-                    <i class="glyphicon glyphicon-shopping-cart icon_color_white"></i>
+                    <i id="CartIcon" class="glyphicon glyphicon-shopping-cart icon_color_white"></i>
+                    <i id="CartIcon2"></i>
                     <span>
                         <strong>Cart</strong>
                     </span>
                 </a>
             </li>
             <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
             </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesion</a></li>
         </ul>
     }
 }
@@ -26,14 +27,15 @@ else
 {
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a href="@Url.Action("Index", "Home")" class="btn btn-link">
-                <i class="glyphicon glyphicon-shopping-cart icon_color_white"></i>
+            <a href="@Url.Action("Index", "Cart")" class="btn btn-link">
+                <i id="CartIcon" class="glyphicon glyphicon-shopping-cart icon_color_white"></i>
+                <i id="CartIcon2"></i>
                 <span>
                     <strong>Cart</strong>
                 </span>
             </a>
         </li>
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Accede", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }

@@ -6,23 +6,23 @@ namespace BooKX.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "Correo")]
         public string Email { get; set; }
 
         [Required]
-        [Display(Name = "Contry")]
+        [Display(Name = "Pais")]
         public string Contry { get; set; }
 
         [Required]
-        [Display(Name ="City")]
+        [Display(Name ="Ciudad")]
         public string City { get; set; }
 
         [Required]
-        [Display(Name = "Main Address")]
+        [Display(Name = "Dirección Principal")]
         public string Address { get; set; }
 
         [Required]
-        [Display(Name = "Postal Code")]
+        [Display(Name = "Codigo Postal")]
         public string PostalCode { get; set; }
     }
 
@@ -65,35 +65,35 @@ namespace BooKX.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "Correo")]
         [EmailAddress]
         public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Contraseña")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Recordar datos?")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "Contry")]
+        [Display(Name = "País")]
         public string Contry { get; set; }
 
         [Required]
-        [Display(Name = "City")]
+        [Display(Name = "Ciudad")]
         public string City { get; set; }
 
         [Required]
-        [Display(Name = "Main Address")]
+        [Display(Name = "Direccion Principal")]
         public string Address { get; set; }
 
         [Required]
-        [Display(Name = "Postal Code")]
+        [Display(Name = "Codigo Postal")]
         public string PostalCode { get; set; }
 
         [Required]
@@ -102,14 +102,14 @@ namespace BooKX.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} debe tener una lingitud de {2} ", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "La contraseña y su confiramcion no coinciden")]
         public string ConfirmPassword { get; set; }
     }
 

@@ -4,8 +4,7 @@
     ViewBag.Title = "Carrito de Compras";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Index</h2>
+<h2>Aqui tienes los libros a&ntilde;adidos a tu carrito</h2>
 
 <table class="table">
     <tr>
@@ -24,32 +23,57 @@
         <th>
             @Html.DisplayNameFor(model => model.TotalPrice)
         </th>
-        <th></th>
+        <th>Remover del Carrito</th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Author)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Quantity)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Price)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TotalPrice)
-    </td>
-    <td>
-        <a href="@Url.Action("Remove", "Cart", new { id=item.Id })">
-            <i class="icon-large icon-cart-out"></i>
-        </a>
-    </td>
-</tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                <a href="@Url.Action("Remove", "Cart", new { id=item.Id })">
+                    <i class="icon-large icon-cart-out"></i>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+<h4>Total a Pagar: @ViewBag.Total</h4>
+@if (Model.Count() > 0)
+{
+    <div class="row">
+        <div class="col-md-5">
+        </div>
+        <div class="col-md-5">
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a href="@Url.Action("Buy", "Cart")" class="btn btn-primary">
+                        <i id="CartIcon" class="glyphicon glyphicon-credit-card icon_color_white"></i>
+                        <span>
+                            <strong>Comprar</strong>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 }
 
-</table>
+
+

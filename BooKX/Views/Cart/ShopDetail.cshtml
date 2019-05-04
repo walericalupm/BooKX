@@ -1,0 +1,72 @@
+﻿@model BooKX.Models.ShoppingData
+
+@{
+    ViewBag.Title = "ShopDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gracias @Html.DisplayFor(model => model.Name) por tu compra!</h2>
+<h4>En dos dias llegar&aacute; tu compra a la dirección indicada, tu c&oacute;digo de compra es: @ViewBag.code</h4>
+
+<div>
+    <h5>Detalle de Env&iacute;o</h5>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+     </dl>
+</div>
+
+<div>
+    <a href="@Url.Action("Index", "Books")" class="btn btn-primary">
+        <i id="CartIcon" class="glyphicon glyphicon-shopping-cart icon_color_white"></i>
+        <span>
+            <strong>Realizar otra compra</strong>
+        </span>
+        </a>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-success">
+        <i id="CartIcon" class="glyphicon glyphicon-home icon_color_white"></i>
+        <span>
+            <strong>Salir</strong>
+        </span>
+    </a>
+</div>
+<p>
+</p>

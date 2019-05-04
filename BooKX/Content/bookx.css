@@ -1,3 +1,13 @@
 ﻿.icon_color_white {
     color: #ffffff;
 }
+.icon_color_white_backround {
+    color: #000000;
+    background: #ffffff
+}
+.nav li a {
+    color: #B0CAFF !important;
+}
+.navbar-inverse {
+    background-color: #20438A !important;
+}
