@@ -30,6 +30,9 @@ namespace BooKX.Models
 
         [Column(TypeName = "numeric")]
         public decimal Price { get; set; }
+        public int Quatity { get; set; }
+        [StringLength(500)]
+        public string Image { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shop> Shops { get; set; }
